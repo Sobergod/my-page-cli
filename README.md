@@ -2,6 +2,10 @@
 
 > A Vue.js project
 
+> 使用vuetify搭建的类微信小程序页面骨架
+
+> 帮助快速开发
+
 ## Build Setup
 
 ``` bash
@@ -17,5 +21,3 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
