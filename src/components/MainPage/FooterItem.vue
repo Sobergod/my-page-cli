@@ -1,14 +1,14 @@
 <template>
-    <div class="footer" :style="footerStyle">
-        <div class="tabbar-list">
-            <div class="tabbar-item" v-for="(item,index) in tabBarList" :key="index" @click="navToDetail(item.pagePath)">
-                <i v-if="iconType === 0" :class="active===item.name?item.icon:item.selectIcon"></i>
-                <img v-else-if="iconType === 1"></img>
-                <v-icon v-else-if="iconType === 2">{{item.icon}}</v-icon>
-                <span>{{item.text}}</span>
-            </div>
-        </div>
+  <div class="footer" :style="footerStyle">
+    <div class="tabbar-list">
+      <div class="tabbar-item" v-for="(item,index) in tabBarList" :key="index" @click="navToDetail(item.pagePath)">
+        <i v-if="iconType === 0" :class="active===item.name?item.icon:item.selectIcon"></i>
+        <img v-else-if="iconType === 1"></img>
+        <v-icon v-else-if="iconType === 2">{{item.icon}}</v-icon>
+        <span>{{item.text}}</span>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
