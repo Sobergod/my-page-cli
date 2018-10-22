@@ -4,16 +4,13 @@
     <div class="main-wrap" ref="mainWrap">
       <slot></slot>
     </div>
-    <!-- <footer-item ref="footer"></footer-item> -->
   </div>
 </template>
 
 <script>
 import HeaderItem from "../HeaderItem/HeaderItem";
-import FooterItem from "./FooterItem";
 export default {
   components: {
-    FooterItem,
     HeaderItem
   },
   props: {
