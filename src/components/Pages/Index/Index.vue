@@ -1,17 +1,19 @@
 <template>
-    <main-page>
-        <div v-for="(item,index) in test">{{index}}</div>
-    </main-page>
+  <main-page :title="config.title" :navOption="config.navOption">
+    <div v-for="(item,index) in test">{{index}}hahahahhahaha</div>
+  </main-page>
 </template>
 
 <script>
-import MainPage from "./MainPage/MainPage";
+import MainPage from "../../MainPage/MainPage";
+import { config } from "./config.js";
 export default {
   components: {
     MainPage
   },
   data() {
     return {
+      config: config,
       test: []
     };
   },
@@ -20,7 +22,7 @@ export default {
   },
   methods: {
     setTestArray() {
-      for (let i = 0; i < 1000; i++) {
+      for (let i = 0; i < 10; i++) {
         this.test.push(i);
       }
     }

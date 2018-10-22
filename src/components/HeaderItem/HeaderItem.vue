@@ -1,13 +1,21 @@
 <template>
   <div class="header" :style="headerStyle">
-    <v-btn class="left-btn" v-if="navOption.hasBack" @click="onBack(backPath)" flat icon color="#fff">
-      <v-icon>arrow_back</v-icon>
-    </v-btn>
-    <span class="title">{{title}}</span>
-    <v-btn class="right-btn" v-if="navOption.hasOption" flat icon color="#fff">
-      <v-icon>more_vert</v-icon>
-    </v-btn>
-
+    <div class="left-wrap algin_center">
+      <v-btn class="left-btn" v-if="navOption.hasBack" @click="onBack(backPath)" flat icon color="#fff">
+        <v-icon>arrow_back</v-icon>
+      </v-btn>
+    </div>
+    <div class="title_wrap algin_center">
+      <span class="font-weight-bold">{{title}}</span>
+    </div>
+    <div class="right-wrap algin_center">
+      <v-btn class="search-btn" v-if="navOption.hasSearch" flat icon color="#fff">
+        <v-icon>search</v-icon>
+      </v-btn>
+      <v-btn class="option-btn" v-if="navOption.hasOption" flat icon color="#fff">
+        <v-icon>more_vert</v-icon>
+      </v-btn>
+    </div>
   </div>
 </template>
 
@@ -30,7 +38,7 @@ export default {
       default() {
         return {
           hasBack: true,
-          hasSearch: false,
+          hasSearch: true,
           hasOption: true
         };
       }
@@ -66,9 +74,9 @@ export default {
 <style scoped>
 .header {
   position: relative;
+  display: flex;
   align-items: center;
-  font-size: 14px;
-  padding: 8px 5px;
+  padding: 8px 0;
   box-sizing: border-box;
   height: 40px;
 }
@@ -84,10 +92,27 @@ export default {
   background: #aaaaaa;
   transform: scaleY(0.5);
 }
-.left-btn {
-  float: left;
+/* 垂直居中 */
+.algin_center {
+  display: flex;
+  align-items: center;
 }
-.right-btn {
-  float: right;
+.left-wrap {
+  flex: 1;
+  justify-content: flex-start;
+}
+.right-wrap {
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.option-btn {
+  margin-left: 0px;
+}
+.title_wrap {
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  flex: 4;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <header-item ref="header"></header-item>
+    <header-item :title="title" :backPath="backPath" :navOption="navOption" ref="header"></header-item>
     <div class="main-wrap" ref="mainWrap">
       <slot></slot>
     </div>
@@ -15,6 +15,26 @@ export default {
   components: {
     FooterItem,
     HeaderItem
+  },
+  props: {
+    title: {
+      type: String,
+      default: "通用页面头部标题"
+    },
+    backPath: {
+      type: String,
+      default: ""
+    },
+    navOption: {
+      type: Object,
+      default() {
+        return {
+          hasBack: true,
+          hasSearch: true,
+          hasOption: true
+        };
+      }
+    }
   },
   created() {
     this._setMainWrapHeight();
