@@ -1,5 +1,4 @@
 // 顶级页面基础信息设置,包括图标,底部栏结构等
-import { routers } from "./router.config.js";
 const Header = {
     style: {
         color: "" || "#fff",
@@ -34,17 +33,8 @@ function _setTabBar() {
             },
         ]
     }
-    setTimeout(() => {
-        for (let i in routers) {
-            if (routers[i].isMainPage === true) {
-                TabBar.list[i].pagePath = routers[i].path;
-                TabBar.list[i].name = routers[i].name;
-            }
-        }
-    }, 0)
     return TabBar
 }
-
 const TabBar = _setTabBar()
 
 export {

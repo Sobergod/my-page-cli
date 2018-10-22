@@ -1,12 +1,31 @@
 <template>
-  <div id="app">
-    <router-view />
+  <div>
+    <div ref="mainWrap">
+      <router-view />
+    </div>
+    <footer-item ref="footer"></footer-item>
   </div>
 </template>
 
 <script>
+import FooterItem from "./components/FooterItem/FooterItem";
 export default {
-  name: "App"
+  name: "App",
+  components: {
+    FooterItem
+  },
+  created() {
+    this._setMainWrapHeight();
+  },
+  methods: {
+    _setMainWrapHeight() {
+      this.$nextTick(() => {
+        let documentHeight = this.$utils.getDocumentHeight(),
+          footerHeight = this.$utils.getDomHeight(this.$refs.footer.$el);
+        this.$refs.mainWrap.style.height = documentHeight - footerHeight + "px";
+      });
+    }
+  }
 };
 </script>
 

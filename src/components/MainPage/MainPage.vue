@@ -1,10 +1,10 @@
 <template>
-  <div>
+  <div class="wrap">
     <header-item :title="title" :backPath="backPath" :navOption="navOption" ref="header"></header-item>
     <div class="main-wrap" ref="mainWrap">
       <slot></slot>
     </div>
-    <footer-item ref="footer"></footer-item>
+    <!-- <footer-item ref="footer"></footer-item> -->
   </div>
 </template>
 
@@ -37,7 +37,7 @@ export default {
     }
   },
   created() {
-    this._setMainWrapHeight();
+    // this._setMainWrapHeight();
   },
   methods: {
     // 设置内容主体的高度
@@ -55,6 +55,9 @@ export default {
 </script>
 
 <style scoped>
+.wrap {
+  height: 100%;
+}
 .main-wrap {
   overflow: auto;
   background: #eeeeee;

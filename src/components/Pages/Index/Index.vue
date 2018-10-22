@@ -1,7 +1,8 @@
 <template>
-  <main-page :title="config.title" :navOption="config.navOption">
+  <!-- <main-page :title="config.title" :navOption="config.navOption">
     <div v-for="(item,index) in test">{{index}}hahahahhahaha</div>
-  </main-page>
+  </main-page> -->
+  <div>123123</div>
 </template>
 
 <script>
