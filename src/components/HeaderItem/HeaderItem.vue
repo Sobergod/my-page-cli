@@ -112,6 +112,8 @@ export default {
   margin-left: 0px;
 }
 .title_wrap {
+  min-width: 140px;
+  max-width: 140px;
   align-items: center;
   justify-content: center;
   font-size: 16px;

@@ -38,15 +38,6 @@ export default {
   },
   methods: {
     // 设置内容主体的高度
-    _setMainWrapHeight() {
-      this.$nextTick(() => {
-        let documentHeight = this.$utils.getDocumentHeight(),
-          headerHeight = this.$utils.getDomHeight(this.$refs.header.$el),
-          footerHeight = this.$utils.getDomHeight(this.$refs.footer.$el);
-        this.$refs.mainWrap.style.height =
-          documentHeight - headerHeight - footerHeight + "px";
-      });
-    }
   }
 };
 </script>

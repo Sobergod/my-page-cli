@@ -29,8 +29,11 @@ export default {
   methods: {
     _setMainWrapHeight() {
       this.$nextTick(() => {
-        let documentHeight = this.$utils.getDocumentHeight(),
+        let footerHeight = 0;
+        if (this.$refs.footer.$el) {
           footerHeight = this.$utils.getDomHeight(this.$refs.footer.$el);
+        }
+        let documentHeight = this.$utils.getDocumentHeight();
         this.$refs.mainWrap.style.height = documentHeight - footerHeight + "px";
       });
     },
@@ -63,7 +66,7 @@ export default {
 <style scoped>
 .mainWrap {
   background: #fafafa;
-  transition: height 0.2s ease-in-out;
+  transition: height 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 .appView {
   position: absolute;
