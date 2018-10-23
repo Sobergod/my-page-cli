@@ -45,18 +45,15 @@ export default {
     // 设置内容主体的高度
     _setMainWrapHeight() {
       this.$nextTick(() => {
-        let headerHeight = 0,
-          footerHeight = 0,
+        let header = this.$refs.header.$el,
+          box = this.$refs.box,
           footer = this.$refs.wrap.parentNode.parentNode.children[1],
-          mainWrap = this.$refs.wrap.parentNode;
-        if (this.$refs.header.$el) {
-          headerHeight = this.$utils.getDomHeight(this.$refs.header.$el);
-        }
-        footerHeight = this.$utils.getDomHeight(footer);
-        let wrapHeight = this.$utils.getDocumentHeight();
-        mainWrap.style.height = wrapHeight - footerHeight + "px";
-        this.$refs.box.style.height =
-          wrapHeight - footerHeight - headerHeight + "px";
+          mainWrap = this.$refs.wrap.parentNode,
+          documentHeight = this.$utils.getDocumentHeight(),
+          headerHeight = header ? this.$utils.getDomHeight(header) : 0,
+          footerHeight = footer ? this.$utils.getDomHeight(footer) : 0;
+        mainWrap.style.height = documentHeight - footerHeight + "px";
+        box.style.height = documentHeight - footerHeight - headerHeight + "px";
       });
     },
     _onResize() {

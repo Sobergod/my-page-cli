@@ -1,7 +1,8 @@
 <template>
-    <div>
-        <!-- 次级页面路由入口 -->
-        <router-view></router-view>
+    <div class="contain">
+        <div class="mainWrap" ref="mainWrap">
+            <router-view />
+        </div>
     </div>
 </template>
 
