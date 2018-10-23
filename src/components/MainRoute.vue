@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="contain">
     <div class="mainWrap" ref="mainWrap">
       <transition :name="direction">
         <router-view class="appView" />
@@ -64,6 +64,9 @@ export default {
 </script>
 
 <style scoped>
+.contain {
+  overflow: hidden;
+}
 .mainWrap {
   background: #fafafa;
   transition: height 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86);

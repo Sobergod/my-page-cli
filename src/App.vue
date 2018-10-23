@@ -18,7 +18,7 @@ export default {
 <style>
 html {
   /* box-sizing: content-box; */
-  overflow-y: auto;
+  overflow: hidden;
   font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
 }
 body {
