@@ -18,35 +18,12 @@ export default {
   },
   data() {
     return {
-      direction: "slide-right"
+      direction: "slide-right",
+      footerHeight: 0
     };
   },
-  created() {
-    this._setMainWrapHeight();
-    this._onResize();
-    console.log(this.$router.options);
-  },
-  methods: {
-    _setMainWrapHeight() {
-      this.$nextTick(() => {
-        let footerHeight = 0;
-        if (this.$refs.footer.$el) {
-          footerHeight = this.$utils.getDomHeight(this.$refs.footer.$el);
-        }
-        let documentHeight = this.$utils.getDocumentHeight();
-        this.$refs.mainWrap.style.height = documentHeight - footerHeight + "px";
-      });
-    },
-    _onResize() {
-      let resizeTimer = null;
-      window.onresize = () => {
-        if (resizeTimer) clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-          this._setMainWrapHeight();
-        }, 100);
-      };
-    }
-  },
+  created() {},
+  methods: {},
   watch: {
     $route(to, from) {
       const toDepth = to.path.split("/").length;

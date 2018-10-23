@@ -1,6 +1,6 @@
 <template>
   <main-page :title="config.title" :navOption="config.navOption">
-    <v-layout v-for="item in test">
+    <v-layout v-for="(item,index) in test" :key="index">
       <v-flex xs12 sm6 offset-sm3>
         <v-card>
           <v-img src="https://cdn.vuetifyjs.com/images/cards/desert.jpg" aspect-ratio="2.75"></v-img>
