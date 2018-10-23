@@ -1,6 +1,7 @@
 <template>
   <main-page :title="config.title" :backPath="config.backPath" :navOption="config.navOption">
     hahahahhahahahahahhahahahahh
+    <div @click="testLink">跳转详情页</div>
   </main-page>
 </template>
 
@@ -15,6 +16,13 @@ export default {
     return {
       config: config
     };
+  },
+  methods: {
+    testLink() {
+      this.$router.push({
+        path: "/a"
+      });
+    }
   }
 };
 </script>

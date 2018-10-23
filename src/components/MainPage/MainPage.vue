@@ -52,11 +52,4 @@ export default {
 </script>
 
 <style scoped>
-.wrap {
-  height: 100%;
-}
-.main-wrap {
-  overflow: auto;
-  background: #eeeeee;
-}
 </style>

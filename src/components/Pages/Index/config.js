@@ -3,7 +3,7 @@ export const config = {
     title: "首页",
     backPath: "",
     navOption: {
-        hasBack: true,
+        hasBack: false,
         hasSearch: true,
         hasOption: true
     },

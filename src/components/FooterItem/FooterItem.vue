@@ -14,6 +14,7 @@
 <script>
 import { TabBar } from "../../page.config.js";
 export default {
+  name: "FooterItem",
   data() {
     return {
       footerStyle: {},

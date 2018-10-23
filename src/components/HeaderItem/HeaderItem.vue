@@ -73,12 +73,14 @@ export default {
 
 <style scoped>
 .header {
+  z-index: 999;
+  box-sizing: border-box;
   position: relative;
   display: flex;
   align-items: center;
   padding: 8px 0;
-  box-sizing: border-box;
   height: 40px;
+  box-shadow: 0 1px 10px #333;
 }
 /* 1px 边框 */
 .header:after {
