@@ -1,11 +1,11 @@
 <template>
-  <div class="footer" :style="footerStyle">
+  <div class="footer" :style="tabBar.style">
     <div class="tabbar-list">
-      <div class="tabbar-item" v-for="(item,index) in tabBarList" :key="index" @click="navToDetail(item.pagePath)">
-        <i v-if="iconType === 0" :class="active===item.name?item.icon:item.selectIcon"></i>
-        <img v-else-if="iconType === 1"></img>
-        <v-icon v-else-if="iconType === 2">{{item.icon}}</v-icon>
-        <span>{{item.text}}</span>
+      <div class="tabbar-item" v-for="(item,index) in tabBar.list" :key="item.pagePath" @click="navToDetail(item.pagePath)">
+        <i v-if="tabBar.iconType === 0" :class="active===item.name?item.icon:item.selectIcon"></i>
+        <img v-else-if="tabBar.iconType === 1"></img>
+        <v-icon v-else-if="tabBar.iconType === 2" :color="active===item.name?tabBar.selectColor:tabBar.style.color">{{item.icon}}</v-icon>
+        <span :style="{color:active===item.name?tabBar.selectColor:tabBar.style.color}">{{item.text}}</span>
       </div>
     </div>
   </div>
@@ -15,25 +15,31 @@
 import { TabBar } from "../../page.config.js";
 export default {
   name: "FooterItem",
+  // props: {
+  //   tabBarList: {
+  //     type: Array,
+  //     default: []
+  //   }
+  // },
   data() {
     return {
-      footerStyle: {},
-      tabBarList: [],
-      iconType: 0,
-      active: this.$router.name
+      tabBar: {},
+      active: this.$route.name
     };
   },
   created() {
-    this._setFooterStyle();
-    this._setTabBarList();
+    this._settabBar();
+  },
+  watch: {
+    $route(to, from) {
+      this.active = to.name;
+    }
   },
   methods: {
-    _setFooterStyle() {
-      this.footerStyle = TabBar.style;
-      this.iconType = TabBar.iconType;
-    },
-    _setTabBarList() {
-      this.tabBarList = TabBar.list;
+    _settabBar() {
+      setTimeout(() => {
+        this.tabBar = TabBar;
+      }, 0);
     },
     // 跳转详情
     navToDetail(path) {

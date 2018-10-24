@@ -16,7 +16,7 @@ const Header = {
 function _setTabBar() {
     const TabBar = {
         style: {
-            color: "" || "#000",
+            color: "grey" || "#000",
             backgroundColor: "" || "#fff",
         },
         selectColor: "" || "#80D640",
@@ -24,12 +24,12 @@ function _setTabBar() {
         list: [
             {
                 icon: "home",
-                selectIcon: "",
+                selectIcon: "accessibility",
                 text: "主页",
             },
             {
                 icon: "person",
-                selectIcon: "",
+                selectIcon: "account_circle",
                 text: "我的",
             },
         ]

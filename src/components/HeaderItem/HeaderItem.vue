@@ -80,7 +80,6 @@ export default {
   align-items: center;
   padding: 8px 0;
   height: 40px;
-  box-shadow: 0 1px 10px #333;
 }
 /* 1px 边框 */
 .header:after {
@@ -88,7 +87,7 @@ export default {
   position: absolute;
   bottom: 0;
   left: 0;
-  height: 0px;
+  height: 1px;
   width: 100%;
   clear: both;
   background: #aaaaaa;
