@@ -32,11 +32,6 @@ function _setTabBar() {
                 selectIcon: "",
                 text: "我的",
             },
-            {
-                icon: "person",
-                selectIcon: "",
-                text: "我的",
-            },
         ]
     }
     setTimeout(() => {
