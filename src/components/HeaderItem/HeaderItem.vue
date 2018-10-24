@@ -13,7 +13,7 @@
         <v-icon>search</v-icon>
       </v-btn>
       <v-btn class="option-btn" v-if="navOption.hasOption" flat icon color="#fff">
-        <v-icon>more_vert</v-icon>
+        <v-icon>more_horiz</v-icon>
       </v-btn>
     </div>
   </div>

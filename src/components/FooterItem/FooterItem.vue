@@ -15,12 +15,6 @@
 import { TabBar } from "../../page.config.js";
 export default {
   name: "FooterItem",
-  // props: {
-  //   tabBarList: {
-  //     type: Array,
-  //     default: []
-  //   }
-  // },
   data() {
     return {
       tabBar: {},
