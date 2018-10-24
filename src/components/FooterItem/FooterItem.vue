@@ -2,8 +2,6 @@
   <div class="footer" :style="tabBar.style">
     <div class="tabbar-list">
       <div class="tabbar-item" v-for="(item,index) in tabBar.list" :key="item.pagePath" @click="navToDetail(item.pagePath)">
-        <i v-if="tabBar.iconType === 0" :class="active===item.name?item.icon:item.selectIcon"></i>
-        <img v-else-if="tabBar.iconType === 1"></img>
         <v-icon v-else-if="tabBar.iconType === 2" :color="active===item.name?tabBar.selectColor:tabBar.style.color">{{item.icon}}</v-icon>
         <span :style="{color:active===item.name?tabBar.selectColor:tabBar.style.color}">{{item.text}}</span>
       </div>

@@ -10,6 +10,7 @@ const Header = {
 /**
 * tabbar选择栏位基础样式设置
 * icon推荐使用字体图标,直接给class名即可
+* iconType==2!important, 
 * list推荐最多配置5个
 */
 function _setTabBar() {
