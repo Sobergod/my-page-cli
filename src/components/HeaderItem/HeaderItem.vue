@@ -76,10 +76,12 @@ export default {
   z-index: 999;
   box-sizing: border-box;
   position: relative;
-  display: flex;
-  align-items: center;
-  padding: 8px 0;
-  height: 40px;
+  padding: 0 16px;
+  height: 48px;
+  max-height: 48px;
+  overflow: hidden;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 }
 /* 1px 边框 */
 .header:after {
@@ -95,27 +97,26 @@ export default {
 }
 /* 垂直居中 */
 .algin_center {
-  display: flex;
-  align-items: center;
+  display: inline-flex;
+  vertical-align: top;
+  height: 100%;
 }
 .left-wrap {
-  flex: 1;
-  justify-content: flex-start;
+  margin-left: -16px;
 }
-.right-wrap {
-  flex: 1;
-  justify-content: flex-end;
-}
-
 .option-btn {
   margin-left: 0px;
 }
 .title_wrap {
-  min-width: 140px;
-  max-width: 140px;
+  font-size: 17px;
+  margin-left: 16px;
+}
+.title_wrap span {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 16px;
-  flex: 4;
+}
+.right-wrap {
+  float: right;
+  margin-right: -16px;
 }
 </style>
