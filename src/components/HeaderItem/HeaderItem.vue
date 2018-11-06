@@ -1,7 +1,7 @@
 <template>
   <div class="header" :style="headerStyle">
-    <div class="left-wrap algin_center">
-      <v-btn class="left-btn" v-if="navOption.hasBack" @click="onBack(backPath)" flat icon color="#fff">
+    <div class="left-wrap algin_center" v-if="navOption.hasBack">
+      <v-btn class="left-btn"  @click="onBack(backPath)" flat icon color="#fff">
         <v-icon>arrow_back</v-icon>
       </v-btn>
     </div>
@@ -109,7 +109,6 @@ export default {
 }
 .title_wrap {
   font-size: 17px;
-  margin-left: 16px;
 }
 .title_wrap span {
   display: flex;
