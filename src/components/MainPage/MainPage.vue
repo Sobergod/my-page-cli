@@ -9,6 +9,7 @@
 
 <script>
 import HeaderItem from "../HeaderItem/HeaderItem";
+import { Header } from "../../page.config.js";
 export default {
   components: {
     HeaderItem
@@ -16,7 +17,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: "通用页面头部标题"
+      default: Header.title
     },
     backPath: {
       type: String,

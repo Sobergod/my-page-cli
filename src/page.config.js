@@ -6,6 +6,7 @@ const Header = {
         backgroundColor: "" || "#2196F3",
     },
     iconColor: "" || "#fff",
+    title: "我的app",
 }
 /**
 * tabbar选择栏位基础样式设置
@@ -20,7 +21,7 @@ function _setTabBar() {
             backgroundColor: "" || "#fff",
         },
         selectColor: "" || "#2196F3",
-        iconType: 2, //0代表字体图标,1代表图片,2代表ui自带
+        iconType: 2, //2代表ui自带
         list: [
             {
                 icon: "home",

@@ -1,7 +1,7 @@
 <template>
   <div class="header" :style="headerStyle">
     <div class="left-wrap algin_center" v-if="navOption.hasBack">
-      <v-btn class="left-btn"  @click="onBack(backPath)" flat icon color="#fff">
+      <v-btn class="left-btn" @click="onBack(backPath)" flat icon color="#fff">
         <v-icon>arrow_back</v-icon>
       </v-btn>
     </div>
@@ -27,7 +27,7 @@ export default {
   props: {
     title: {
       type: String,
-      default: "通用页面头部标题"
+      default: Header.title
     },
     backPath: {
       type: String,
