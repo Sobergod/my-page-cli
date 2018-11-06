@@ -7,6 +7,7 @@ import App from './App'
 import router from './router'
 import Utils from './utils/utils'
 import Vuetify from 'vuetify'
+import ApiResult from './network/api_result'
 import 'vuetify/dist/vuetify.min.css'
 // import '@fortawesome/fontawesome-free/css/all.css'
 Vue.use(Vuetify, {
@@ -14,6 +15,7 @@ Vue.use(Vuetify, {
 })
 const utils = new Utils()
 Vue.prototype.$utils = utils
+Vue.prototype.$ApiResult = ApiResult
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

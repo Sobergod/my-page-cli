@@ -10,8 +10,22 @@
 export default {
   name: "App",
   components: {},
-  created() {},
-  methods: {}
+  created() {
+    // console.log(this.$netWork);
+    this.getData();
+  },
+  methods: {
+    getData() {
+      this.$ApiResult
+        .test()
+        .then(res => {
+          console.log(res);
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    }
+  }
 };
 </script>
 
