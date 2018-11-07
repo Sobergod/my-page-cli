@@ -28,6 +28,8 @@ class Routers {
     }
 }
 // 全局router配置
+// routersConfig[0]为带底部tab栏页面
+// routersConfig[1]为不带底部tab栏页面
 const routersConfig = [
     {
         path: '/',
