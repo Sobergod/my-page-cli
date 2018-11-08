@@ -46,7 +46,7 @@ export default {
 }
 .mainWrap {
   background: #fafafa;
-  transition: height 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: height 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 .appView {
   position: absolute;
