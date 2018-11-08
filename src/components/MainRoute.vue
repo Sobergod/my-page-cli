@@ -33,6 +33,7 @@ export default {
       } else if (from.path == "/") {
         this.direction = "slide-left";
       } else {
+        // 动画
         this.direction = toDepth < fromDepth ? "slide-right" : "slide-left";
       }
     }
