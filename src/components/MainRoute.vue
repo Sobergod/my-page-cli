@@ -52,18 +52,22 @@ export default {
 .appView {
   position: absolute;
   width: 100%;
-  transition: opacity 0.2s ease-out;
+  transition: all 0.2s ease-out;
 }
 .slide-left-enter {
-  opacity: 1;
+  opacity: 0;
+  margin-right: 500px;
 }
 .slide-left-leave-active {
   opacity: 0;
+  margin-right: 0px;
 }
 .slide-right-enter {
-  opacity: 1;
+  opacity: 0;
+  margin-left: 500px;
 }
 .slide-right-leave-active {
   opacity: 0;
+  margin-left: 0px;
 }
 </style>

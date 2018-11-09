@@ -1,3 +1,5 @@
+// important! 不建议修改默认配色和样式 管道符后面是默认样式
+
 // 顶级页面基础信息设置,包括图标,底部栏结构等
 import { routersPart } from "./router.config.js";
 const Header = {
