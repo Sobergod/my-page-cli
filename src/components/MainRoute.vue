@@ -47,7 +47,7 @@ export default {
 }
 .mainWrap {
   background: #fafafa;
-  transition: height 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: opacity 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 .appView {
   position: absolute;
@@ -55,19 +55,15 @@ export default {
   transition: all 0.2s ease-out;
 }
 .slide-left-enter {
-  opacity: 0;
-  margin-right: 500px;
+  opacity: 1;
 }
 .slide-left-leave-active {
   opacity: 0;
-  margin-right: 0px;
 }
 .slide-right-enter {
-  opacity: 0;
-  margin-left: 500px;
+  opacity: 1;
 }
 .slide-right-leave-active {
   opacity: 0;
-  margin-left: 0px;
 }
 </style>
