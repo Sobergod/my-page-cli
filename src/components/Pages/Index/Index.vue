@@ -1,5 +1,5 @@
 <template>
-  <main-page :title="config.title" :navOption="config.navOption">
+  <main-page>
   </main-page>
 </template>
 

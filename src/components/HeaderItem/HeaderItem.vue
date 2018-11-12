@@ -1,5 +1,5 @@
 <template>
-  <div class="header" :style="headerStyle">
+  <div class="header" >
     <div class="left-wrap algin_center" v-if="navOption.hasBack">
       <v-btn class="left-btn" @click="onBack(backPath)" flat icon color="#fff">
         <v-icon>arrow_back</v-icon>
@@ -77,8 +77,6 @@ export default {
   box-sizing: border-box;
   position: relative;
   padding: 0 16px;
-  height: 48px;
-  max-height: 48px;
   overflow: hidden;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);

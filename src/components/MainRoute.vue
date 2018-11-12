@@ -5,7 +5,7 @@
         <router-view class="appView" />
       </transition>
     </div>
-    <footer-item ref="footer"></footer-item>
+    <!-- <footer-item ref="footer"></footer-item> -->
   </div>
 </template>
 

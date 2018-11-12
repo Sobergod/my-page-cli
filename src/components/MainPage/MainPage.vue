@@ -1,68 +1,50 @@
 <template>
   <div class="wrap" ref="wrap">
-    <header-item :title="title" :backPath="backPath" :navOption="navOption" ref="header"></header-item>
-    <div class="main-box" ref="box">
+    <header-item :style="{'height':headerHeight+'px'}"></header-item>
+    <div class="main-box" ref="box" :style="{'height':boxHeight+'px'}">
       <slot></slot>
     </div>
+    <footer-item ref="footer" :style="{'height':footerHeight+'px'}"></footer-item>
   </div>
 </template>
 
 <script>
 import HeaderItem from "../HeaderItem/HeaderItem";
+import FooterItem from "../FooterItem/FooterItem";
 import { Header } from "../../page.config.js";
 export default {
   components: {
-    HeaderItem
+    HeaderItem,
+    FooterItem
   },
-  props: {
-    title: {
-      type: String,
-      default: Header.title
-    },
-    backPath: {
-      type: String,
-      default: ""
-    },
-    footerHeight: {
-      type: Number,
-      default: 0
-    },
-    navOption: {
-      type: Object,
-      default() {
-        return {
-          hasBack: true,
-          hasSearch: true,
-          hasOption: true
-        };
-      }
-    }
+  data() {
+    return {
+      headerHeight: 48,
+      footerHeight: 50,
+      boxHeight: 0
+    };
+  },
+  computed: {
+   
   },
   created() {
-    this._setMainWrapHeight();
+    this._setBoxHeight();
     this._onResize();
   },
   methods: {
-    // 设置内容主体的高度
-    _setMainWrapHeight() {
-      this.$nextTick(() => {
-        let header = this.$refs.header.$el,
-          box = this.$refs.box,
-          footer = this.$refs.wrap.parentNode.parentNode.children[1],
-          mainWrap = this.$refs.wrap.parentNode,
-          documentHeight = this.$utils.getDocumentHeight(),
-          headerHeight = header ? this.$utils.getDomHeight(header) : 0,
-          footerHeight = footer ? this.$utils.getDomHeight(footer) : 0;
-        mainWrap.style.height = documentHeight - footerHeight + "px";
-        box.style.height = documentHeight - footerHeight - headerHeight + "px";
-      });
+     _setBoxHeight() {
+      this.boxHeight =
+        document.documentElement.clientHeight -
+        this.headerHeight -
+        this.footerHeight;
     },
+    // 设置内容主体的高度
     _onResize() {
       let resizeTimer = null;
       window.onresize = () => {
         if (resizeTimer) clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
-          this._setMainWrapHeight();
+          this._setBoxHeight();
         }, 100);
       };
     }

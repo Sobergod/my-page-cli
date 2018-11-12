@@ -1,7 +1,5 @@
 <template>
-  <main-page :title="config.title" :backPath="config.backPath" :navOption="config.navOption">
-    <v-btn @click="testLink">跳转详情页</v-btn>
-  </main-page>
+
 </template>
 
 <script>

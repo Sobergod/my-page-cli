@@ -46,8 +46,8 @@ export default {
   position: relative;
   display: flex;
   box-sizing: border-box;
-  height: 50px;
   box-shadow: 0px -1px 3px#eee;
+  overflow: hidden;
 }
 .tabbar-list {
   display: flex;
