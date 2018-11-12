@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap" ref="wrap">
+  <div class="wrap">
     <header-item :style="{'height':headerHeight+'px'}"></header-item>
     <div class="main-box" ref="box" :style="{'height':boxHeight+'px'}">
       <slot></slot>
@@ -24,19 +24,16 @@ export default {
       boxHeight: 0
     };
   },
-  computed: {
-   
-  },
   created() {
     this._setBoxHeight();
     this._onResize();
   },
   methods: {
-     _setBoxHeight() {
-      this.boxHeight =
-        document.documentElement.clientHeight -
-        this.headerHeight -
-        this.footerHeight;
+    _setBoxHeight() {
+      let documentHeight = this.$utils.getDocumentHeight() || 0,
+        headerHeight = this.headerHeight || 0,
+        footerHeight = this.footerHeight || 0;
+      this.boxHeight = documentHeight - headerHeight - footerHeight;
     },
     // 设置内容主体的高度
     _onResize() {

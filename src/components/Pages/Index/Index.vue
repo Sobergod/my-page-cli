@@ -1,5 +1,6 @@
 <template>
   <main-page>
+    <div v-for="(item,index) in test">{{item}}</div>
   </main-page>
 </template>
 
@@ -21,7 +22,7 @@ export default {
   },
   methods: {
     setTestArray() {
-      for (let i = 0; i < 10; i++) {
+      for (let i = 0; i < 100; i++) {
         this.test.push(i);
       }
     }
