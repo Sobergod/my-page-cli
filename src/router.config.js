@@ -11,13 +11,13 @@ import Mine from "./components/Pages/Mine/Mine"
 
 const routes = [
     {
-        isMinePage: true,
+        isMainPage: true,
         path: '/',
         name: 'Index',
         component: Index,
     },
     {
-        isMinePage: true,
+        isMainPage: true,
         path: '/mine',
         name: 'Mine',
         component: Mine,

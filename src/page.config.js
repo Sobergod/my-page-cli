@@ -36,11 +36,21 @@ const TabBar = {
         },
     ],
 }
-setTimeout(() => {
-    if (TabBar.list === 0) {
-        TabBar.style.height = 0
-    }
-}, 0)
+function setTabBar() {
+    setTimeout(() => {
+        for (let i in routes) {
+            let rName = routes[i].name.toLowerCase();
+            for (let j in TabBar.list) {
+                let lName = TabBar.list[j].name.toLowerCase()
+                if (rName === lName && routes.isMainPage === true) {
+                    TabBar.list[j].pagePath = routes[i].path
+                }
+            }
+        }
+    }, 0)
+    return TabBar
+}
+console.log(setTabBar())
 export {
     Header,
     TabBar
