@@ -29,13 +29,14 @@ export default {
     this._onResize();
   },
   methods: {
+    // 设置主体高度
     _setBoxHeight() {
       let documentHeight = this.$utils.getDocumentHeight() || 0,
         headerHeight = this.headerHeight || 0,
         footerHeight = this.footerHeight || 0;
       this.boxHeight = documentHeight - headerHeight - footerHeight;
     },
-    // 设置内容主体的高度
+    // 根据浏览器变化设置内容主体的高度
     _onResize() {
       let resizeTimer = null;
       window.onresize = () => {
