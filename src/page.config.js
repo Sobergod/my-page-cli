@@ -74,7 +74,7 @@ function setTabBar() {
     return TabBar
 }
 setTabBar();
-console.log(setTabBar())
+// console.log(setTabBar())
 export {
     Header,
     TabBar
