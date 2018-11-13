@@ -26,27 +26,21 @@ const TabBar = {
             icon: "home",
             selectIcon: "accessibility",
             text: "主页",
+            name: "index",
         },
         {
             icon: "person",
             selectIcon: "account_circle",
             text: "我的",
+            name: "mine"
         },
     ],
-    test: function () {
-        return setTimeout(() => {
-            let arr = [];
-            for (let i in routes) {
-                if (routes[i].isMinePage === true) {
-                    arr.push(routes[i])
-                }
-            }
-            return arr
-        }, 0)
-    }
 }
-console.log(TabBar.test())
-
+setTimeout(() => {
+    if (TabBar.list === 0) {
+        TabBar.style.height = 0
+    }
+}, 0)
 export {
     Header,
     TabBar
