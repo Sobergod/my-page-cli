@@ -26,13 +26,12 @@ export default {
   },
   data() {
     return {
-      boxHeight: window.sessionStorage.getItem("boxHeight"),
+      boxHeight: null,
       footerHeight: null
     };
   },
   created() {
     this._setTabBar();
-    // this._setBoxHeight();
     this._onResize();
   },
   methods: {
@@ -67,8 +66,7 @@ export default {
     },
     _setBoxHeight(footerHeight) {
       let documentHeight = this.$utils.getDocumentHeight();
-      this.boxHeight = documentHeight - this.headerHeight - this.footerHeight;
-      window.sessionStorage.setItem("boxHeight", this.boxHeight);
+      this.boxHeight = documentHeight - this.headerHeight - footerHeight;
     },
     // 根据浏览器变化设置内容主体的高度
     _onResize() {
