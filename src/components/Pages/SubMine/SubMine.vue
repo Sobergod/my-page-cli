@@ -1,6 +1,7 @@
 <template>
   <main-page>
-    <v-layout v-for="(item,index) in test" :key="index">
+    <div @click="test1">测试按钮1</div>
+    <!-- <v-layout v-for="(item,index) in test" :key="index">
       <v-flex xs12 sm6 offset-sm3>
         <v-card>
           <v-img src="https://cdn.vuetifyjs.com/images/cards/desert.jpg" aspect-ratio="2.75"></v-img>
@@ -16,7 +17,7 @@
           </v-card-actions>
         </v-card>
       </v-flex>
-    </v-layout>
+    </v-layout> -->
   </main-page>
 </template>
 
@@ -35,6 +36,11 @@ export default {
     this.setTestArray();
   },
   methods: {
+    test1() {
+      this.$router.push({
+        path: "/test"
+      });
+    },
     setTestArray() {
       for (let i = 0; i < 10; i++) {
         this.test.push(i);
