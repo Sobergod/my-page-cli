@@ -16,19 +16,19 @@ export default {
   data() {
     return {
       tabBar: {},
-      active: this.$route.name
+      active: this.$route.name.toLowerCase()
     };
   },
   created() {
-    this._settabBar();
+    this._setTabBar();
   },
   watch: {
     $route(to, from) {
-      this.active = to.name;
+      this.active = to.name.toLowerCase();
     }
   },
   methods: {
-    _settabBar() {
+    _setTabBar() {
       setTimeout(() => {
         this.tabBar = TabBar;
       }, 0);
