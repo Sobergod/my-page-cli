@@ -99,6 +99,5 @@ const setTabBar = function () {
 // console.log(setTabBar())
 export {
     Header,
-    TabBar,
     setTabBar
 }
