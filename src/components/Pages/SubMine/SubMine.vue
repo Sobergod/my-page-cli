@@ -1,5 +1,5 @@
 <template>
-  <!-- <main-page>
+  <main-page>
     <v-layout v-for="(item,index) in test" :key="index">
       <v-flex xs12 sm6 offset-sm3>
         <v-card>
@@ -17,7 +17,7 @@
         </v-card>
       </v-flex>
     </v-layout>
-  </main-page> -->
+  </main-page>
 </template>
 
 <script>

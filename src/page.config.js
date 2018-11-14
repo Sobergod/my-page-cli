@@ -13,8 +13,9 @@ const Header = {
 * icon推荐使用字体图标,直接给class名即可
 * iconType==2!important, 
 * list推荐最多配置5个
+* name值要对上router里有isMainPage的值
 */
-const TabBar = {
+let TabBar = {
     style: {
         color: "grey" || "#000",
         backgroundColor: "" || "#fff",
@@ -34,10 +35,16 @@ const TabBar = {
             text: "我的",
             name: "mine"
         },
+        {
+            icon: "person",
+            selectIcon: "account_circle",
+            text: "我的1",
+            name: "submine"
+        },
     ],
 }
 /**
- * 需要按顺序配置
+ * 需要按顺序配置,n性能较好
  */
 
 // function setTabBar1() {
@@ -56,26 +63,47 @@ const TabBar = {
 // }
 
 /**
- * 乱序配置
+ * 乱序配置,n的平方性能一般
  */
-
-function setTabBar() {
-    setTimeout(() => {
+const setTabBar = function () {
+    return new Promise((resolve, reject) => {
         for (let i in routes) {
             let rName = routes[i].name.toLowerCase();
             for (let j in TabBar.list) {
                 let lName = TabBar.list[j].name.toLowerCase()
                 if (rName === lName && routes[i].isMainPage === true) {
                     TabBar.list[j].pagePath = routes[i].path;
+                    TabBar.list[j].isMainPage = true;
                 }
             }
         }
-    }, 0)
-    return TabBar
+        for (let i in TabBar.list) {
+            if (TabBar.list[i].isMainPage === undefined) {
+                TabBar.list.splice(i, 1);
+            }
+        }
+        resolve(TabBar);
+    })
 }
-setTabBar();
+// function setTabBar() {
+//     setTimeout(() => {
+//         for (let i in routes) {
+//             let rName = routes[i].name.toLowerCase();
+//             for (let j in TabBar.list) {
+//                 let lName = TabBar.list[j].name.toLowerCase()
+//                 if (rName === lName && routes[i].isMainPage === true) {
+//                     TabBar.list[j].pagePath = routes[i].path;
+//                     TabBar.list[j].isMainPage = true;
+//                 }
+//             }
+//         }
+//     }, 0)
+//     return TabBar;
+// }
+// setTabBar()
 // console.log(setTabBar())
 export {
     Header,
-    TabBar
+    TabBar,
+    setTabBar
 }

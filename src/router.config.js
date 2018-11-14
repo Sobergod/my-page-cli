@@ -8,6 +8,7 @@
  */
 import Index from "./components/Pages/Index/Index"
 import Mine from "./components/Pages/Mine/Mine"
+import SubMine from "./components/Pages/SubMine/SubMine"
 
 const routes = [
     {
@@ -21,6 +22,12 @@ const routes = [
         path: '/mine',
         name: 'Mine',
         component: Mine,
+    },
+    {
+        // isMainPage: true,
+        path: '/submine',
+        name: 'SubMine',
+        component: SubMine,
     }
 ]
 

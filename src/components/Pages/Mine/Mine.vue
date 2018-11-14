@@ -1,5 +1,6 @@
 <template>
   <main-page>
+    <div @click="testLink">跳转测试</div>
   </main-page>
 </template>
 
@@ -18,7 +19,7 @@ export default {
   methods: {
     testLink() {
       this.$router.push({
-        path: "/a"
+        path: "/submine"
       });
     }
   }

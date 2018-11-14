@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import { TabBar } from "../../page.config.js";
+import { TabBar, setTabBar } from "../../page.config.js";
 export default {
   name: "FooterItem",
   data() {
@@ -29,9 +29,9 @@ export default {
   },
   methods: {
     _setTabBar() {
-      setTimeout(() => {
-        this.tabBar = TabBar;
-      }, 0);
+      setTabBar().then(res => {
+        this.tabBar = res;
+      });
     },
     // 跳转详情
     navToDetail(path) {

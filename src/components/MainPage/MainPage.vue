@@ -12,29 +12,62 @@
 import HeaderItem from "../HeaderItem/HeaderItem";
 import FooterItem from "../FooterItem/FooterItem";
 import { Header } from "../../page.config.js";
+import { TabBar, setTabBar } from "../../page.config.js";
 export default {
   components: {
     HeaderItem,
     FooterItem
   },
+  props: {
+    headerHeight: {
+      default: 48,
+      type: Number
+    }
+  },
   data() {
     return {
-      headerHeight: 48,
-      footerHeight: 50,
-      boxHeight: 0
+      boxHeight: 0,
+      footerHeight: null
     };
   },
   created() {
-    this._setBoxHeight();
+    this._setTabBar();
+    // this._setBoxHeight();
     this._onResize();
   },
   methods: {
-    // 设置主体高度
-    _setBoxHeight() {
-      let documentHeight = this.$utils.getDocumentHeight() || 0,
-        headerHeight = this.headerHeight || 0,
-        footerHeight = this.footerHeight || 0;
-      this.boxHeight = documentHeight - headerHeight - footerHeight;
+    _setTabBar() {
+      setTabBar()
+        .then(res => {
+          for (let i in res.list) {
+            if (
+              res.list[i].name.toLowerCase() === this.$route.name.toLowerCase()
+            ) {
+              let listItem = res.list[i];
+              if (
+                listItem.isMainPage == undefined ||
+                listItem.isMainPage == false
+              ) {
+                return Promise.resolve(0);
+              } else {
+                return Promise.resolve(50);
+              }
+            }
+          }
+        })
+        .then(res => {
+          if (res) {
+            this.footerHeight = res;
+            this._setBoxHeight(res);
+          } else {
+            this.footerHeight = 0;
+            this._setBoxHeight(0);
+          }
+        });
+    },
+    _setBoxHeight(footerHeight) {
+      let documentHeight = this.$utils.getDocumentHeight();
+      this.boxHeight = documentHeight - this.headerHeight - this.footerHeight;
     },
     // 根据浏览器变化设置内容主体的高度
     _onResize() {
@@ -42,7 +75,7 @@ export default {
       window.onresize = () => {
         if (resizeTimer) clearTimeout(resizeTimer);
         resizeTimer = setTimeout(() => {
-          this._setBoxHeight();
+          this._setTabBar();
         }, 100);
       };
     }
