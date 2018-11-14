@@ -27,7 +27,7 @@ export default {
   data() {
     return {
       boxHeight: 0,
-      footerHeight: null
+      footerHeight: 0
     };
   },
   created() {
