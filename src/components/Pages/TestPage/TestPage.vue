@@ -13,7 +13,7 @@ export default {
   methods: {
     test() {
       this.$router.push({
-        path: "/submine"
+        path: "/"
       });
     }
   }
