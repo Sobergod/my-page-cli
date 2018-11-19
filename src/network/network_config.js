@@ -1,17 +1,16 @@
 import axios from "axios"
-
-
 class NetWork {
     constructor(axios) {
         this.axios = axios;
-        this.getResult = this.getResult.bind(this);
-        this.postResult = this.postResult.bind(this);
+        this.get = this.get.bind(this);
+        this.post = this.post.bind(this);
         this.BASE_URL = "https://www.easy-mock.com/mock/5b319ab2a776703db5dff938/test";
+        this.TIMEOUT = 5 * 1000;
     }
     _initAxios() {
         let axios = this.axios;
         // 响应时间
-        axios.defaults.timeout = 5 * 1000
+        axios.defaults.timeout = this.TIMEOUT
         // 配置请求头
         // axios.defaults.headers.post['Content-Type'] = 'application/json;charset=UTF-8'
         axios.defaults.baseURL = this.BASE_URL
@@ -47,7 +46,7 @@ class NetWork {
         return axios;
     }
     // get请求
-    getResult(url, params) {
+    get(url, params) {
         let axios = this._initAxios();
         return new Promise((resolve, reject) => {
             axios.get(url, { params: params }).then(res => {
@@ -58,7 +57,7 @@ class NetWork {
         })
     }
     // post请求
-    postResult(params) {
+    post(params) {
         let axios = this._initAxios();
         console.log(_initAxios())
         return new Promise((resolve, reject) => {
