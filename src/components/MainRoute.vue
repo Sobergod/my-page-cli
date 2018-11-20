@@ -1,25 +1,23 @@
 <template>
   <div class="contain">
-    <div class="mainWrap" ref="mainWrap">
+    <div class="mainWrap">
       <transition :name="direction">
-        <router-view class="appView" />
+        <keep-alive>
+          <router-view v-if="this.$route.meta.keepAlive" class="appView" />
+        </keep-alive>
+        <router-view v-if="!this.$route.meta.keepAlive" class="appView" />
       </transition>
     </div>
-    <!-- <footer-item ref="footer"></footer-item> -->
   </div>
 </template>
 
 <script>
-import FooterItem from "./FooterItem/FooterItem";
 export default {
-  name: "MainPage",
-  components: {
-    FooterItem
-  },
+  name: "MainRoute",
+  components: {},
   data() {
     return {
-      direction: "slide-right",
-      footerHeight: 0
+      direction: "slide-right"
     };
   },
   created() {},

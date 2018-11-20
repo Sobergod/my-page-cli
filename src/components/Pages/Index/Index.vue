@@ -1,6 +1,6 @@
 <template>
   <main-page>
-    <div v-for="(item,index) in test">{{item}}</div>
+    <div v-for="(item,index) in test">{{item.id}}</div>
   </main-page>
 </template>
 
@@ -18,9 +18,22 @@ export default {
     };
   },
   created() {
-    this.setTestArray();
+    // console.log(this.$netWork);
+    this.getData();
+    // this.setTestArray();
   },
   methods: {
+    getData() {
+      this.$ApiResult
+        .getApi("first")
+        .then(res => {
+          console.log(res);
+          this.test = res.shequ;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
     setTestArray() {
       for (let i = 0; i < 100; i++) {
         this.test.push(i);

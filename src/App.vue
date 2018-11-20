@@ -1,18 +1,19 @@
 <template>
   <div>
-    <div ref="mainWrap">
-      <router-view />
-    </div>
+    <main-route></main-route>
   </div>
 </template>
 
 <script>
+import MainRoute from "./components/MainRoute";
 export default {
   name: "App",
-  components: {},
+  components: {
+    MainRoute
+  },
   created() {
     // console.log(this.$netWork);
-    this.getData();
+    // this.getData();
   },
   methods: {
     getData() {
