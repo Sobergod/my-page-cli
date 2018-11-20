@@ -52,13 +52,14 @@ export default {
             this.headerActive = "header-active";
             // this.headerHeight = 0;
             // this._setTabBar();
+            return;
           } else {
-            console.log(Header.style.color);
             this.headerStyle.color = "#fff";
             // this.headerStyle.backgroundColor = "#2196F3";
             this.headerActive = "";
             // this.headerHeight = 50;
             // this._setTabBar();
+            return;
           }
         };
       });
