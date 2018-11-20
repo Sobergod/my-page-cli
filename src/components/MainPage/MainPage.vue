@@ -42,9 +42,10 @@ export default {
     _boxScroll() {
       this.$nextTick(() => {
         let boxItem = this.$refs.box;
+        const SCROLL_OFFSET = 50;
         this.headerStyle.color = "#fff";
         boxItem.onscroll = () => {
-          if (boxItem.scrollTop > 100) {
+          if (boxItem.scrollTop > SCROLL_OFFSET) {
             this.headerStyle.color = "black";
             // this.headerStyle.backgroundColor = "rgba(0,0,0,0)";
             // this.headerStyle.boxShadow = "unset";
