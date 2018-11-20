@@ -1,8 +1,5 @@
 import netWork from "./network_config"
 
-// 解构
-const { get, post } = netWork;
-const HOME = "/home";
 /**
  * @description 接口集合 后缀必须用_get/_post标注类型
  */
@@ -12,22 +9,25 @@ let api = {
 }
 class ApiResult {
     constructor(apiSet) {
+        this.apiSet = this._setApiKey(apiSet);
+    }
+    _setApiKey(apiSet) {
         // 键名转化成小写
         let _apiSet = {};
         for (let i in apiSet) {
             _apiSet[i.toLowerCase()] = apiSet[i];
             delete apiSet[i];
         }
-        this.apiSet = _apiSet;
+        return _apiSet
     }
     getApi(name, params) {
         let apiSet = this.apiSet;
         if (apiSet[name + "_post"] !== undefined && apiSet[name + "_post"] !== "") {
             // post请求优先
-            return post(apiSet[name + "_post"], params);
+            return netWork.post(apiSet[name + "_post"], params);
         } else if (apiSet[name + "_get"] !== undefined && apiSet[name + "_get"] !== "") {
             // get请求
-            return get(apiSet[name + "_get"], params);
+            return netWork.get(apiSet[name + "_get"], params);
         }
         // 返回一个统一报错信息
         return new Promise((resolve) => {
