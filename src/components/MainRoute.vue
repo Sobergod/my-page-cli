@@ -5,8 +5,8 @@
         <keep-alive>
           <router-view v-if="this.$route.meta.keepAlive" class="appView" />
         </keep-alive>
-        <router-view v-if="!this.$route.meta.keepAlive" class="appView" />
       </transition>
+      <router-view v-if="!this.$route.meta.keepAlive" class="appView" />
     </div>
   </div>
 </template>
