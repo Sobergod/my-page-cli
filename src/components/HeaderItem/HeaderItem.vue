@@ -1,7 +1,7 @@
 <template>
   <div class="header" :style="headerStyle">
     <div class="left-wrap algin_center" v-if="navOption.hasBack">
-      <v-btn class="left-btn" @click="onBack(backPath)" flat icon color="#fff">
+      <v-btn class="left-btn header-btn" @click="onBack(backPath)" flat icon :color="headerStyle.color">
         <v-icon>arrow_back</v-icon>
       </v-btn>
     </div>
@@ -9,10 +9,10 @@
       <span class="font-weight-bold">{{title}}</span>
     </div>
     <div class="right-wrap algin_center">
-      <v-btn class="search-btn" v-if="navOption.hasSearch" flat icon color="#fff">
+      <v-btn class="search-btn header-btn" v-if="navOption.hasSearch" flat icon :color="headerStyle.color">
         <v-icon>search</v-icon>
       </v-btn>
-      <v-btn class="option-btn" v-if="navOption.hasOption" flat icon color="#fff">
+      <v-btn class="option-btn header-btn" v-if="navOption.hasOption" flat icon :color="headerStyle.color">
         <v-icon>more_horiz</v-icon>
       </v-btn>
     </div>
@@ -33,6 +33,15 @@ export default {
       type: String,
       default: ""
     },
+    headerStyle: {
+      type: Object,
+      default() {
+        return {
+          color: "#FFF",
+          background: Header.style.backgroundColor
+        };
+      }
+    },
     navOption: {
       type: Object,
       default() {
@@ -45,9 +54,7 @@ export default {
     }
   },
   data() {
-    return {
-      headerStyle: {}
-    };
+    return {};
   },
   created() {
     this._setHeaderStyle();
@@ -55,7 +62,6 @@ export default {
   methods: {
     // 设置头部样式
     _setHeaderStyle() {
-      this.headerStyle = Header.style;
       this.hasOption = Header.hasOption;
     },
     onBack(backPath) {
@@ -80,7 +86,8 @@ export default {
   overflow: hidden;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-  background: #2196f3;
+  background-color: #2196f3;
+  transition: background-color 0.6s cubic-bezier(0.25, 0.8, 0.5, 1);
 }
 /* 1px 边框 */
 .header:after {
@@ -108,13 +115,18 @@ export default {
 }
 .title_wrap {
   font-size: 17px;
+  transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
 }
 .title_wrap span {
   display: flex;
   align-items: center;
+  transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
 }
 .right-wrap {
   float: right;
   margin-right: -16px;
+}
+.header-btn :before {
+  transition: unset !important;
 }
 </style>

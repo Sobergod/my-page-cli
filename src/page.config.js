@@ -5,7 +5,6 @@ const Header = {
         color: "" || "#fff",
         backgroundColor: "" || "#2196F3",
     },
-    iconColor: "" || "#fff",
     title: "我的app",
 }
 /**

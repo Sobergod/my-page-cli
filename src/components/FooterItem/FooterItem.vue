@@ -43,7 +43,9 @@ export default {
 
 <style scoped>
 .footer {
-  position: relative;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
   display: flex;
   box-sizing: border-box;
   box-shadow: 0px -1px 3px#eee;
