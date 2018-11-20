@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <main-route></main-route>
-  </div>
+  <main-route></main-route>
 </template>
 
 <script>
