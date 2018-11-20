@@ -12,7 +12,13 @@ let api = {
 }
 class ApiResult {
     constructor(apiSet) {
-        this.apiSet = apiSet
+        // 键名转化成小写
+        let _apiSet = {};
+        for (let i in apiSet) {
+            _apiSet[i.toLowerCase()] = apiSet[i];
+            delete apiSet[i];
+        }
+        this.apiSet = _apiSet;
     }
     getApi(name, params) {
         let apiSet = this.apiSet;
