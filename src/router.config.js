@@ -17,12 +17,18 @@ const routes = [
         path: '/',
         name: 'Index',
         component: Index,
+        meta: {
+            keepAlive: true // 需要被缓存
+        }
     },
     {
         isMainPage: true,
         path: '/mine',
         name: 'Mine',
         component: Mine,
+        meta: {
+            keepAlive: true // 需要被缓存
+        }
     },
     {
         isMainPage: true,
