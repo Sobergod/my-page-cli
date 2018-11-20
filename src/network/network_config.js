@@ -1,7 +1,8 @@
 import axios from "axios"
+import apiConfig from "./api_list"
 class NetWork {
     constructor(axios) {
-        this.BASE_URL = "https://www.easy-mock.com/mock/5b319ab2a776703db5dff938/test";
+        this.BASE_URL = apiConfig.baseURL;
         this.TIMEOUT = 5 * 1000;
         this.axios = this._initAxios(axios);
     }
@@ -33,7 +34,7 @@ class NetWork {
                     switch (err.response.status) {
                         // 接口出错判断
                         case 500:
-                            console.log(err.response.status)
+                            // console.log(err.response.status)
                             break;
                     }
                 }
@@ -54,7 +55,7 @@ class NetWork {
         })
     }
     // post请求
-    post(params) {
+    post(url, params) {
         let axios = this.axios;
         return new Promise((resolve, reject) => {
             axios.post(url, params).then(res => {
