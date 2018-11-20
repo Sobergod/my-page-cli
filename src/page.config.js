@@ -33,6 +33,12 @@ let TabBar = {
             selectIcon: "account_circle",
             text: "我的",
             name: "mine"
+        },
+        {
+            icon: "person",
+            selectIcon: "account_circle",
+            text: "我的",
+            name: "submine"
         }
     ],
 }
@@ -68,6 +74,7 @@ const setTabBar = function () {
                 if (rName === lName && routes[i].isMainPage === true) {
                     TabBar.list[j].pagePath = routes[i].path;
                     TabBar.list[j].isMainPage = true;
+                    TabBar.list[j].name = lName;
                     break;
                 }
             }

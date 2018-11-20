@@ -25,7 +25,7 @@ const routes = [
         component: Mine,
     },
     {
-        // isMainPage: true,
+        isMainPage: true,
         path: '/submine',
         name: 'SubMine',
         component: SubMine,

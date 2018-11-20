@@ -24,12 +24,16 @@ export default {
   },
   watch: {
     $route(to, from) {
+      
       this.active = to.name.toLowerCase();
     }
   },
   methods: {
     _setTabBar() {
+      console.log(this.$route.name.toLowerCase());
       setTabBar().then(res => {
+      console.log(res);
+
         this.tabBar = res;
       });
     },
