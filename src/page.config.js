@@ -68,9 +68,9 @@ let TabBar = {
 const setTabBar = function () {
     return new Promise((resolve, reject) => {
         for (let i in routes) {
-            let rName = routes[i].name.toLowerCase();
+            let rName = routes[i].name.toLowerCase(); //路由名字
             for (let j in TabBar.list) {
-                let lName = TabBar.list[j].name.toLowerCase()
+                let lName = TabBar.list[j].name.toLowerCase() //底部列表名字
                 if (rName === lName && routes[i].isMainPage === true) {
                     TabBar.list[j].pagePath = routes[i].path;
                     TabBar.list[j].isMainPage = true;
