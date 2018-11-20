@@ -57,6 +57,7 @@ let TabBar = {
 
 /**
  * 乱序配置,n的平方性能一般
+ * 会过滤有无isMainPage的项
  */
 const setTabBar = function () {
     return new Promise((resolve, reject) => {
