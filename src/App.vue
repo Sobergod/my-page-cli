@@ -17,7 +17,7 @@ export default {
   methods: {
     getData() {
       this.$ApiResult
-        .test()
+        .getApi("home")
         .then(res => {
           console.log(res);
         })
