@@ -88,11 +88,9 @@ export default {
         })
         .then(res => {
           if (res) {
-            
             this.footerHeight = res;
             this._setBoxHeight(res);
           } else {
-            console.log(res);
             this.footerHeight = 0;
             this._setBoxHeight(0);
           }
