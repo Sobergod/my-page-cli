@@ -25,7 +25,7 @@ class ApiResult {
         }
         // 返回一个统一报错信息
         return new Promise((resolve) => {
-            resolve("api error!");
+            resolve("client api error!");
         })
 
 

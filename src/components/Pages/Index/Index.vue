@@ -1,12 +1,15 @@
 <template>
-  <div class="main-wrap">
-    <div v-for="(item,index) in test">{{item.id}}</div>
-  </div>
+  <main-wrap>
+    <div v-for="(item,index) in test">{{item}}</div>
+  </main-wrap>
 </template>
 <script>
 import { config } from "./config.js";
+import MainWrap from "../../MainWrap/MainWrap";
 export default {
-  components: {},
+  components: {
+    MainWrap
+  },
   data() {
     return {
       config: config,
@@ -15,8 +18,8 @@ export default {
   },
   created() {
     // console.log(this.$netWork);
-    this.getData();
-    // this.setTestArray();
+    // this.getData();
+    this.setTestArray();
   },
   methods: {
     getData() {

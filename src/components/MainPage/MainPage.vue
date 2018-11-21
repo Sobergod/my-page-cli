@@ -123,7 +123,8 @@ export default {
 }
 .header-active {
   background-color: rgba(255, 255, 255, 1) !important;
-  box-shadow: unset !important;
+  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
+    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
   transition: background-color 0.6s cubic-bezier(0.25, 0.8, 0.5, 1);
 }
 </style>

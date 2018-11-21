@@ -33,12 +33,6 @@ let TabBar = {
             selectIcon: "account_circle",
             text: "我的",
             name: "mine"
-        },
-        {
-            icon: "person",
-            selectIcon: "account_circle",
-            text: "我的",
-            name: "submine"
         }
     ],
 }

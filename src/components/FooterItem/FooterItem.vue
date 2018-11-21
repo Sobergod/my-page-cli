@@ -48,7 +48,6 @@ export default {
   width: 100%;
   display: flex;
   box-sizing: border-box;
-  box-shadow: 0px -1px 3px#eee;
   overflow: hidden;
 }
 .tabbar-list {

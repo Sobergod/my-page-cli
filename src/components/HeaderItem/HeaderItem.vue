@@ -85,8 +85,7 @@ export default {
   width: 100%;
   padding: 0 16px;
   overflow: hidden;
-  box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
-    0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  
   /* background-color: #2196f3; */
   background-color: rgba(0, 0, 0, 0.5);
   transition: background-color 0.6s cubic-bezier(0.25, 0.8, 0.5, 1);
