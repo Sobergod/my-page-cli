@@ -1,16 +1,13 @@
 <template>
-  <main-page>
+  <div>
     <div v-for="(item,index) in test">{{item.id}}</div>
-  </main-page>
+  </div>
 </template>
 
 <script>
-import MainPage from "../../MainPage/MainPage";
 import { config } from "./config.js";
 export default {
-  components: {
-    MainPage
-  },
+  components: {},
   data() {
     return {
       config: config,

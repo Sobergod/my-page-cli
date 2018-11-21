@@ -1,7 +1,6 @@
 <template>
-  <main-page>
-    <div @click="test1">测试按钮1</div>
-    <!-- <v-layout v-for="(item,index) in test" :key="index">
+  <div @click="test1">测试按钮1</div>
+  <!-- <v-layout v-for="(item,index) in test" :key="index">
       <v-flex xs12 sm6 offset-sm3>
         <v-card>
           <v-img src="https://cdn.vuetifyjs.com/images/cards/desert.jpg" aspect-ratio="2.75"></v-img>
@@ -18,15 +17,11 @@
         </v-card>
       </v-flex>
     </v-layout> -->
-  </main-page>
 </template>
 
 <script>
-import MainPage from "../../MainPage/MainPage";
 export default {
-  components: {
-    MainPage
-  },
+  components: {},
   data() {
     return {
       test: []

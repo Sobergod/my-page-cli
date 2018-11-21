@@ -2,7 +2,7 @@
   <div class="wrap">
     <header-item :class="headerActive" :headerStyle="headerStyle" :style="{'height':headerHeight+'px'}"></header-item>
     <div class="main-box" ref="box" :style="{'height':boxHeight+'px'}">
-      <slot></slot>
+      <router-view class="appView" />
     </div>
     <footer-item ref="footer" :style="{'height':footerHeight+'px'}"></footer-item>
   </div>
@@ -88,9 +88,11 @@ export default {
         })
         .then(res => {
           if (res) {
+            
             this.footerHeight = res;
             this._setBoxHeight(res);
           } else {
+            console.log(res);
             this.footerHeight = 0;
             this._setBoxHeight(0);
           }

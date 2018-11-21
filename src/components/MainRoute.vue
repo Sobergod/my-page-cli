@@ -3,7 +3,8 @@
     <div class="mainWrap">
       <transition :name="direction">
         <!-- <keep-alive> -->
-        <router-view class="appView" />
+       
+        <main-page></main-page>
         <!-- </keep-alive> -->
       </transition>
       <!-- <router-view v-if="!this.$route.meta.keepAlive" class="appView" /> -->
@@ -12,9 +13,12 @@
 </template>
 
 <script>
+import MainPage from "./MainPage/MainPage";
 export default {
   name: "MainRoute",
-  components: {},
+  components: {
+    MainPage
+  },
   data() {
     return {
       direction: "slide-right"
