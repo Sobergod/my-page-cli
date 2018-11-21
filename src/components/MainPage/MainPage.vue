@@ -56,7 +56,7 @@ export default {
     _boxScroll() {
       this.$nextTick(() => {
         let boxItem = this.$refs.box;
-        const SCROLL_OFFSET = 50;
+        const SCROLL_OFFSET = 1;
         this.headerStyle.color = "#fff";
         boxItem.onscroll = () => {
           if (boxItem.scrollTop > SCROLL_OFFSET) {
@@ -123,8 +123,7 @@ export default {
 }
 .header-active {
   background-color: rgba(255, 255, 255, 1) !important;
-  height: 40px !important;
   box-shadow: unset !important;
-  transition: background-color 0.6s cubic-bezier(0.25, 0.8, 0.5, 1) !important;
+  transition: background-color 0.6s cubic-bezier(0.25, 0.8, 0.5, 1);
 }
 </style>

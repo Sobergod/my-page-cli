@@ -3,7 +3,7 @@ import routes from "./router.config"
 const Header = {
     style: {
         color: "" || "#fff",
-        backgroundColor: "rgba(0,0,0,0.5)" || "#2196F3",
+        backgroundColor: "rgba(0,0,0,0)" || "#2196F3",
     },
     title: "我的app",
 }
