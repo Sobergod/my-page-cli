@@ -3,7 +3,7 @@ import routes from "./router.config"
 const Header = {
     style: {
         color: "" || "#fff",
-        backgroundColor: "" || "#2196F3",
+        backgroundColor: "rgba(0,0,0,0.5)" || "#2196F3",
     },
     title: "我的app",
 }
@@ -71,7 +71,7 @@ const setTabBar = function () {
             let rName = routes[i].name.toLowerCase(); //路由名字
             for (let j in TabBar.list) {
                 let lName = TabBar.list[j].name.toLowerCase() //底部列表名字
-                if (rName === lName && routes[i].isMainPage === true) {
+                if (rName === lName && routes[i].meta.isMainPage === true) {
                     TabBar.list[j].pagePath = routes[i].path;
                     TabBar.list[j].isMainPage = true;
                     TabBar.list[j].name = lName;
@@ -79,6 +79,7 @@ const setTabBar = function () {
                 }
             }
         }
+        // 如果操作后没有发现isMainPage就剔除,不属于一级页面
         for (let i in TabBar.list) {
             if (TabBar.list[i].isMainPage === undefined) {
                 TabBar.list.splice(i, 1);

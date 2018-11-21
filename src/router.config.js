@@ -10,6 +10,7 @@ import Index from "./components/Pages/Index/Index"
 import Mine from "./components/Pages/Mine/Mine"
 import SubMine from "./components/Pages/SubMine/SubMine"
 import Test from "./components/Pages/TestPage/TestPage"
+import NotFound from "./components/NotFound/NotFound"
 
 const routes = [
     {
@@ -18,6 +19,7 @@ const routes = [
         name: 'Index',
         component: Index,
         meta: {
+            isMainPage: true,
             keepAlive: true // 需要被缓存
         }
     },
@@ -27,6 +29,7 @@ const routes = [
         name: 'Mine',
         component: Mine,
         meta: {
+            isMainPage: true,
             keepAlive: true // 需要被缓存
         }
     },
@@ -35,12 +38,21 @@ const routes = [
         path: '/submine',
         name: 'SubMine',
         component: SubMine,
+        meta: {
+            isMainPage: true,
+        }
     },
     {
         // isMainPage: true,
         path: '/test',
         name: 'Test',
         component: Test,
+    },
+    {
+        // isMainPage: true,
+        path: '*',
+        name: 'NotFound',
+        component: NotFound,
     }
 ]
 

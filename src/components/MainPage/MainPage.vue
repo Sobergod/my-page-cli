@@ -1,8 +1,10 @@
 <template>
   <div class="wrap">
-    <header-item :class="headerActive" :headerStyle="headerStyle" :style="{'height':headerHeight+'px'}"></header-item>
+    <header-item class="header-item" :class="headerActive" :headerStyle="headerStyle" :style="{'height':headerHeight+'px'}"></header-item>
     <div class="main-box" ref="box" :style="{'height':boxHeight+'px'}">
-      <router-view class="appView" />
+      <keep-alive>
+        <router-view class="appView" />
+      </keep-alive>
     </div>
     <footer-item ref="footer" :style="{'height':footerHeight+'px'}"></footer-item>
   </div>
@@ -38,6 +40,18 @@ export default {
     this._setHeadertyle();
     this._boxScroll();
   },
+  watch: {
+    $route(to, from) {
+      console.log(to);
+      if (to.meta.isMainPage) {
+        this.footerHeight = 50;
+        this.boxHeight = this._setBoxHeight(50);
+      } else {
+        this.footerHeight = 0;
+        this.boxHeight = this._setBoxHeight(0);
+      }
+    }
+  },
   methods: {
     _boxScroll() {
       this.$nextTick(() => {
@@ -68,37 +82,18 @@ export default {
       this.headerStyle = Header.style;
     },
     _setTabBar() {
-      setTabBar()
-        .then(res => {
-          for (let i in res.list) {
-            if (
-              res.list[i].name.toLowerCase() === this.$route.name.toLowerCase()
-            ) {
-              let listItem = res.list[i];
-              if (
-                listItem.isMainPage == undefined ||
-                listItem.isMainPage == false
-              ) {
-                return Promise.resolve(0);
-              } else {
-                return Promise.resolve(50);
-              }
-            }
-          }
-        })
-        .then(res => {
-          if (res) {
-            this.footerHeight = res;
-            this._setBoxHeight(res);
-          } else {
-            this.footerHeight = 0;
-            this._setBoxHeight(0);
-          }
-        });
+      if (this.$route.meta.isMainPage === true) {
+        this.footerHeight = 50;
+        this.boxHeight = this._setBoxHeight(50);
+      } else {
+        this.footerHeight = 0;
+        this.boxHeight = this._setBoxHeight(0);
+      }
     },
     _setBoxHeight(footerHeight) {
-      let documentHeight = this.$utils.getDocumentHeight();
-      this.boxHeight = documentHeight - this.headerHeight - footerHeight;
+      let documentHeight = this.$utils.getDocumentHeight(),
+        boxHeight = documentHeight - footerHeight;
+      return boxHeight;
     },
     // 根据浏览器变化设置内容主体的高度
     _onResize() {
@@ -122,8 +117,13 @@ export default {
   overflow-y: auto;
   transition: height 0.2s cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
+.header-item {
+  position: fixed;
+  top: 0;
+}
 .header-active {
-  background-color: rgba(0, 0, 0, 0) !important;
+  background-color: rgba(255, 255, 255, 1) !important;
+  height: 40px !important;
   box-shadow: unset !important;
   transition: background-color 0.6s cubic-bezier(0.25, 0.8, 0.5, 1) !important;
 }

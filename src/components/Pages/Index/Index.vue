@@ -1,9 +1,8 @@
 <template>
-  <div>
+  <div class="main-wrap">
     <div v-for="(item,index) in test">{{item.id}}</div>
   </div>
 </template>
-
 <script>
 import { config } from "./config.js";
 export default {
@@ -41,4 +40,7 @@ export default {
 </script>
 
 <style scoped>
+.main-wrap {
+  padding-top: 50px;
+}
 </style>
