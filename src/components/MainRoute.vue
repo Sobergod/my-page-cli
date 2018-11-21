@@ -2,11 +2,11 @@
   <div class="contain">
     <div class="mainWrap">
       <transition :name="direction">
-        <keep-alive>
-          <router-view v-if="this.$route.meta.keepAlive" class="appView" />
-        </keep-alive>
+        <!-- <keep-alive> -->
+        <router-view class="appView" />
+        <!-- </keep-alive> -->
       </transition>
-      <router-view v-if="!this.$route.meta.keepAlive" class="appView" />
+      <!-- <router-view v-if="!this.$route.meta.keepAlive" class="appView" /> -->
     </div>
   </div>
 </template>

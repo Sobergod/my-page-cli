@@ -25,7 +25,7 @@ export default {
   methods: {
     getData() {
       this.$ApiResult
-        .getApi("first")
+        .getApi("home")
         .then(res => {
           console.log(res);
           this.test = res.shequ;
