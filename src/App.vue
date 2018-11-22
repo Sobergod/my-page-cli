@@ -30,9 +30,10 @@ export default {
 
 <style>
 html {
-  /* box-sizing: content-box; */
-  overflow: hidden;
+  /* box-sizing: content|-box; */
+  overflow: auto;
   font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+  background: indianred;
 }
 body {
   margin: 0;

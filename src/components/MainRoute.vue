@@ -22,6 +22,5 @@ export default {
 <style scoped>
 .contain {
   overflow: hidden;
-  background: #baba;
 }
 </style>

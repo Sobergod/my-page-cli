@@ -1,11 +1,16 @@
 <template>
-    <div>
+    <main-wrap>
         404
-    </div>
+    </main-wrap>
 </template>
 
 <script>
-export default {};
+import MainWrap from "../MainWrap/MainWrap";
+export default {
+  components: {
+    MainWrap
+  }
+};
 </script>
 
 <style scoped>

@@ -35,31 +35,22 @@ export default {
     };
   },
   created() {
-    this._setTabBar();
-    this._onResize();
     this._setHeadertyle();
     this._boxScroll();
   },
   watch: {
-    $route(to, from) {
-      console.log(to);
-      if (to.meta.isMainPage) {
-        this.footerHeight = 50;
-        this.boxHeight = this._setBoxHeight(50);
-      } else {
-        this.footerHeight = 0;
-        this.boxHeight = this._setBoxHeight(0);
-      }
-    }
+    $route(to, from) {}
   },
   methods: {
     _boxScroll() {
       this.$nextTick(() => {
-        let boxItem = this.$refs.box;
+        let boxItem = window.document;
         const SCROLL_OFFSET = 1;
         this.headerStyle.color = "#fff";
         boxItem.onscroll = () => {
-          if (boxItem.scrollTop > SCROLL_OFFSET) {
+          let scrollTop = document.documentElement.scrollTop;
+          if (scrollTop > SCROLL_OFFSET) {
+            console.log(1);
             this.headerStyle.color = "black";
             // this.headerStyle.backgroundColor = "rgba(0,0,0,0)";
             // this.headerStyle.boxShadow = "unset";
@@ -73,37 +64,12 @@ export default {
             this.headerActive = "";
             // this.headerHeight = 50;
             // this._setTabBar();
-            return;
           }
         };
       });
     },
     _setHeadertyle() {
       this.headerStyle = Header.style;
-    },
-    _setTabBar() {
-      if (this.$route.meta.isMainPage === true) {
-        this.footerHeight = 50;
-        this.boxHeight = this._setBoxHeight(50);
-      } else {
-        this.footerHeight = 0;
-        this.boxHeight = this._setBoxHeight(0);
-      }
-    },
-    _setBoxHeight(footerHeight) {
-      let documentHeight = this.$utils.getDocumentHeight(),
-        boxHeight = documentHeight - footerHeight;
-      return boxHeight;
-    },
-    // 根据浏览器变化设置内容主体的高度
-    _onResize() {
-      let resizeTimer = null;
-      window.onresize = () => {
-        if (resizeTimer) clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-          this._setTabBar();
-        }, 100);
-      };
     }
   }
 };
